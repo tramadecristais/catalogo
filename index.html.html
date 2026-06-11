@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trama de Cristais · Catálogo</title>
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="logo-simbolo.png">
+<link rel="apple-touch-icon" href="logo-simbolo.png">
+<!-- Meta tags para preview ao compartilhar (WhatsApp, Instagram etc.) -->
+<meta name="description" content="Crochê artesanal com cristais, inspirado na tradição italiana. Peças exclusivas feitas à mão pela Trama de Cristais.">
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://tramadecristais.pages.dev">
+<meta property="og:title"       content="Trama de Cristais · Catálogo">
+<meta property="og:description" content="Crochê artesanal com cristais, inspirado na tradição italiana. Peças exclusivas feitas à mão.">
+<meta property="og:image"       content="https://tramadecristais.pages.dev/logo-simbolo.png">
+<meta name="twitter:card"       content="summary">
+<meta name="twitter:title"      content="Trama de Cristais · Catálogo">
+<meta name="twitter:description" content="Crochê artesanal com cristais, inspirado na tradição italiana. Peças exclusivas feitas à mão.">
+<meta name="twitter:image"      content="https://tramadecristais.pages.dev/logo-simbolo.png">
+<link rel="canonical"           href="https://tramadecristais.pages.dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#E8E4D6;
+  --cream-2:#D8D4BE;
+  --coffee:#3E2A1B;
+  --coffee-soft:#6B4F38;
+  --caramel:#A6764A;
+  --accent:#B0633A;
+  --accent-h:#974f2c;
+  --card:#F4F0E4;
+  --line:#D8CEB0;
+  --shadow:rgba(62,42,27,.13);
+  --sub:'Montserrat',sans-serif;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Hanken Grotesk',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--coffee);-webkit-font-smoothing:antialiased;
+  min-height:100vh;display:flex;flex-direction:column;
+  background:radial-gradient(120% 70% at 100% -5%,rgba(176,99,58,.07),transparent 55%),
+             radial-gradient(120% 70% at -10% 0%,rgba(166,118,74,.06),transparent 50%),
+             var(--cream);}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+/* ══════════════════════════════
+   NAVBAR FIXA
+══════════════════════════════ */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:100;
+  height:42px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  padding:0 16px;
+  background:rgba(232,228,214,.95);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line)}
+
+.nav-brand{display:flex;align-items:center;text-decoration:none;justify-self:start;gap:7px}
+.nav-brand-symbol{width:26px;height:26px;object-fit:contain;flex-shrink:0}
+/* nome da marca — oculto por padrão em todos os tamanhos */
+.nav-brand-name{display:none}
+
+.nav-center{display:flex;align-items:center;gap:3px;justify-self:center}
+.nav-btn{background:none;border:none;cursor:pointer;font-family:var(--sub);
+  font-size:11px;font-weight:600;color:var(--coffee-soft);padding:5px 10px 4px;
+  border-radius:0;border-bottom:2px solid transparent;
+  transition:all .2s;letter-spacing:.02em}
+.nav-btn:hover{color:var(--accent)}
+.nav-btn.active{background:none;color:var(--accent);font-weight:700;border-bottom:2px solid var(--accent)}
+
+.nav-ig{display:flex;align-items:center;gap:4px;text-decoration:none;
+  justify-self:end;font-family:var(--sub);font-size:11.5px;font-weight:600;
+  color:var(--caramel);transition:color .2s}
+.nav-ig:hover{color:var(--accent)}
+.nav-ig svg{width:13px;height:13px;flex-shrink:0}
+.nav-ig-label{display:none}
+@media(min-width:480px){.nav-ig-label{display:inline}}
+
+/* espaço para a navbar fixa — páginas ocultas por padrão */
+.page{padding-top:42px;display:none}
+@keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.page.ativa{display:block;flex:1;animation:fadeIn .2s ease}
+#page-colecao{background:#F1EDE0}
+
+/* ══════════════════════════════
+   CABEÇALHO + FILTROS UNIFICADOS
+══════════════════════════════ */
+.controls{position:relative;z-index:5;background:rgba(232,228,214,.95);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line);
+  padding:12px 16px 10px;text-align:center}
+.logo-symbol{width:68px;height:68px;object-fit:contain;display:block;margin:0 auto 3px}
+.logo-text{max-width:160px;width:100%;height:auto;display:block;margin:0 auto 8px}
+.header-rule{width:32px;height:1px;background:var(--caramel);margin:5px auto 4px;position:relative}
+.header-rule::before,.header-rule::after{content:"";position:absolute;top:50%;
+  width:4px;height:4px;border-radius:50%;background:var(--caramel);transform:translateY(-50%)}
+.header-rule::before{left:-9px}.header-rule::after{right:-9px}
+.tagline{font-family:var(--sub);font-size:11px;color:var(--coffee-soft);
+  font-weight:400;letter-spacing:.02em;margin-bottom:20px}
+/* campo de busca com botão limpar */
+.search-wrap{max-width:640px;margin:0 auto 9px;position:relative}
+.search-wrap svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);opacity:.5;pointer-events:none}
+#search{width:100%;padding:6px 34px 6px 36px;border:1px solid var(--line);border-radius:40px;
+  background:var(--card);font-family:var(--sans);font-size:13.5px;color:var(--coffee);
+  outline:none;transition:border-color .2s}
+#search:focus{border-color:var(--accent)}
+#search::placeholder{color:#ab9270}
+#search-clear{position:absolute;right:11px;top:50%;transform:translateY(-50%);
+  background:none;border:none;cursor:pointer;color:#ab9270;font-size:15px;
+  line-height:1;padding:3px 5px;display:none;border-radius:50%;transition:color .2s}
+#search-clear.show{display:block}
+#search-clear:hover{color:var(--accent)}
+.chips-wrap{width:100%;margin:0 auto}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:0 2px 2px;scrollbar-width:none;
+  flex-wrap:nowrap;justify-content:center;align-items:center}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;border:1px solid var(--line);background:var(--card);
+  color:var(--coffee-soft);padding:4px 11px;border-radius:30px;font-family:var(--sub);
+  font-size:11.5px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .22s}
+.chip:hover{border-color:var(--accent)}
+.chip.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* ══════════════════════════════
+   SECTIONS & CARDS
+══════════════════════════════ */
+main{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:20px 16px 40px}
+.section{margin-bottom:36px;scroll-margin-top:120px}
+.section-head{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.section-head .diamond{color:var(--caramel);font-size:14px;flex-shrink:0;line-height:1}
+.section-head h2{font-family:var(--sub);font-weight:600;font-size:clamp(14px,3.6vw,19px);
+  letter-spacing:.04em;white-space:nowrap;color:var(--coffee)}
+.section-head .ln{flex:1;height:1px;background:var(--line)}
+.section-head .ct{font-size:12px;color:var(--caramel);font-weight:600}
+
+#page-colecao > main{padding-top:20px;padding-bottom:40px;min-height:50vh}
+#catalogo{max-width:1200px;margin:0 auto;padding:0 40px;box-sizing:border-box}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  display:flex;flex-direction:column;box-shadow:0 1px 0 var(--shadow);
+  transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s;
+  opacity:0;transform:translateY(14px)}
+.card.in{opacity:1;transform:none}
+.card:hover{transform:translateY(-5px);box-shadow:0 16px 40px -18px var(--shadow)}
+.card.off:hover{transform:none}
+.thumb{position:relative;aspect-ratio:1/1;display:flex;align-items:center;
+  justify-content:center;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.ph .ring{position:absolute;width:60%;height:60%;border:1.5px dashed rgba(255,255,255,.5);border-radius:50%}
+.ph .initial{font-family:var(--serif);font-style:italic;font-size:52px;
+  color:rgba(255,255,255,.95);text-shadow:0 2px 12px rgba(0,0,0,.18)}
+.tag{position:absolute;top:11px;left:11px;background:rgba(245,240,222,.94);
+  color:var(--coffee);font-size:9px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;padding:4px 9px;border-radius:30px;backdrop-filter:blur(4px)}
+.codigo{position:absolute;bottom:11px;left:11px;background:rgba(62,42,27,.78);
+  color:var(--cream);font-size:10.5px;font-weight:600;letter-spacing:.08em;
+  padding:3px 9px;border-radius:6px}
+.ribbon{position:absolute;top:18px;right:-30px;width:120px;transform:rotate(45deg);
+  background:#5A3A24;color:var(--cream);font-size:10px;font-weight:700;
+  letter-spacing:.15em;padding:5px 0;text-transform:uppercase;
+  text-align:center;box-shadow:0 4px 10px rgba(0,0,0,.25)}
+.card.off .thumb img,.card.off .ph{filter:grayscale(.75) brightness(.9)}
+.body{padding:13px 14px 15px;display:flex;flex-direction:column;flex:1}
+.body h3{font-family:var(--serif);font-weight:500;font-size:18px;line-height:1.15;margin-bottom:6px}
+.desc{font-size:12.5px;color:var(--coffee-soft);line-height:1.5;margin-bottom:12px;flex:1}
+/* preço: original riscado (menor) + novo em destaque (maior) */
+.price{font-family:var(--sub);font-size:18px;font-weight:700;color:var(--coffee);
+  margin-bottom:20px;letter-spacing:-.01em;display:flex;align-items:baseline;flex-wrap:wrap;gap:4px}
+.price .cur{font-size:12.5px;color:var(--caramel);font-weight:700}
+.price .old{font-size:12px;color:#b09a78;text-decoration:line-through;font-weight:500;order:-1}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:6px;width:100%;
+  border:none;cursor:pointer;font-family:var(--sub);font-weight:700;font-size:13px;
+  padding:10px;border-radius:12px;background:var(--accent);color:#fff;
+  transition:background .2s,transform .1s;letter-spacing:.01em}
+.cta svg{width:13px;height:13px;flex-shrink:0}
+.cta:hover{background:var(--accent-h)}.cta:active{transform:scale(.98)}
+.cta.off{background:var(--cream-2);color:#a08a68;cursor:not-allowed}
+.empty{text-align:center;padding:60px 20px;color:var(--coffee-soft);
+  font-family:var(--serif);font-style:italic;font-size:20px}
+
+/* ══════════════════════════════
+   PÁGINA: SOBRE
+══════════════════════════════ */
+footer{margin-top:auto}
+@media(max-width:720px){
+  .sobre-wrap{grid-template-columns:1fr !important;gap:24px;padding:28px 20px 32px}
+  .sobre-img-col{order:1}.sobre-text-col{order:2}
+  #catalogo{padding:0 20px}
+}
+.sobre-img-box{width:100%;border-radius:18px;overflow:hidden;
+  border:1px solid var(--line)}
+.sobre-img-box img{width:100%;height:auto;display:block;border-radius:18px}
+
+.sobre-label{font-family:var(--sub);font-size:10.5px;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--caramel);margin-bottom:16px}
+.sobre-title{font-family:var(--serif);font-size:clamp(20px,3vw,28px);
+  font-weight:500;line-height:1.2;margin-bottom:20px;color:var(--coffee)}
+.sobre-text{font-size:14.5px;color:var(--coffee-soft);line-height:1.75;margin-bottom:14px;text-align:justify}
+.sobre-sign{font-family:var(--serif);font-style:italic;font-size:17px;
+  color:var(--caramel);margin-top:24px}
+
+/* ══ SOBRE: topo menos espaçado ══ */
+.sobre-wrap{max-width:720px;margin:0 auto;padding:48px 24px 36px;
+  display:grid;grid-template-columns:220px 1fr;gap:36px;align-items:start}
+
+/* ══ SOBRE: Pilares da marca ══ */
+.valores-wrap{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:14px 20px}
+.valores-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 28px;
+  max-width:560px;margin:0 auto}
+.valor-item{display:flex;align-items:center;gap:5px}
+.valor-icon{font-size:13px;line-height:1}
+.valor-label{font-family:var(--sub);font-size:9.5px;font-weight:500;color:var(--coffee-soft);
+  letter-spacing:.04em}
+
+/* ══ SOBRE: Galeria do evento ══ */
+.evento-section{max-width:760px;margin:0 auto;padding:48px 24px 0;text-align:center}
+.evento-title{font-family:var(--serif);font-size:clamp(18px,3vw,24px);
+  font-weight:500;color:var(--coffee);margin-bottom:8px;line-height:1.2}
+.evento-sub{font-size:13.5px;color:var(--coffee-soft);margin-bottom:24px;line-height:1.6}
+.evento-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+  max-width:560px;margin:0 auto}
+@media(min-width:560px){.evento-grid{grid-template-columns:repeat(4,1fr)}}
+.evento-foto-wrap{aspect-ratio:1/1;border-radius:14px;overflow:hidden;
+  background:linear-gradient(135deg,var(--cream-2),var(--line));
+  border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:transform .22s,box-shadow .22s}
+.evento-foto-wrap:hover{transform:translateY(-3px);box-shadow:0 10px 28px -10px var(--shadow)}
+.evento-foto-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.evento-ph{font-size:28px;opacity:.2}
+
+/* ══ COMO ADQUIRIR (dentro da Sobre) ══ */
+.como-comprar{max-width:760px;margin:0 auto;padding:48px 24px 96px;text-align:center}
+.cc-label{font-family:var(--sub);font-size:10.5px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--caramel);margin-bottom:10px}
+.cc-title{font-family:var(--serif);font-size:clamp(20px,3vw,27px);font-weight:500;
+  line-height:1.2;color:var(--coffee);margin-bottom:30px}
+.cc-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:26px}
+.cc-step{background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:26px 16px 22px;box-shadow:0 1px 0 var(--shadow)}
+.cc-step .num{width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;
+  font-family:var(--sub);font-weight:700;font-size:13px;display:flex;align-items:center;
+  justify-content:center;margin:0 auto 12px}
+.cc-step .emoji{font-size:22px;margin-bottom:8px;display:block;line-height:1}
+.cc-step p{font-size:13px;color:var(--coffee-soft);line-height:1.55}
+.cc-step strong{color:var(--coffee);font-weight:700}
+.cc-note{font-family:var(--sub);font-size:12.5px;color:var(--caramel);font-weight:600}
+@media(max-width:680px){.como-comprar{padding-bottom:56px}.cc-steps{grid-template-columns:1fr;gap:12px}.cc-step{padding:20px 16px}}
+
+/* ══ LEMBRETE DISCRETO (na Coleção) ══ */
+.comprar-hint{text-align:center;font-family:var(--sub);font-size:11.5px;
+  color:var(--coffee-soft);padding:20px 16px 0;margin:0 auto;line-height:1.5;white-space:nowrap}
+.comprar-hint strong{color:var(--caramel);font-weight:700}
+
+/* ══════════════════════════════
+   TOAST
+══════════════════════════════ */
+#toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);
+  z-index:50;background:var(--accent);color:#fff;padding:13px 22px;border-radius:40px;
+  font-size:14px;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.22);
+  opacity:0;pointer-events:none;transition:all .3s;max-width:90vw;text-align:center}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+footer{position:relative;z-index:2;border-top:1px solid var(--line);
+  text-align:center;padding:20px 20px 18px;
+  background:linear-gradient(180deg,transparent,rgba(166,118,74,.05))}
+footer .ft-invite{font-size:12px;color:var(--coffee-soft);margin:0 auto 10px;max-width:38ch}
+.ft-btn{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff;
+  border:none;cursor:pointer;text-decoration:none;font-family:var(--sub);font-weight:700;
+  font-size:12px;padding:8px 18px;border-radius:40px;transition:transform .15s,background .2s}
+.ft-btn:hover{transform:translateY(-2px);background:var(--accent-h)}
+.ft-link{display:inline-block;margin-top:8px;background:none;border:none;cursor:pointer;
+  font-family:var(--sub);font-size:11px;color:var(--coffee-soft);
+  text-decoration:underline;text-underline-offset:3px}
+.ft-link:hover{color:var(--accent)}
+.ft-copy{margin-top:12px;font-family:var(--sub);font-size:11px;color:#b09a78;
+  letter-spacing:.03em;white-space:nowrap}
+
+/* ══════════════════════════════
+   CONJUNTOS
+══════════════════════════════ */
+.card-wide{grid-column:span 2}
+.card-wide .thumb{aspect-ratio:2/1}
+.split-thumb{display:flex;width:100%;height:100%}
+.split-thumb>*{flex:1;min-width:0;height:100%;object-fit:cover}
+.split-thumb .ph{position:relative;inset:auto;flex:1;min-width:0;display:flex;align-items:center;justify-content:center}
+.split-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.split-thumb img+img,.split-thumb .ph+img,.split-thumb img+.ph,.split-thumb .ph+.ph{border-left:2px solid rgba(255,255,255,.4)}
+.conj-badge{display:flex;align-items:center;justify-content:center;gap:5px;
+  margin:0 0 10px;
+  font-family:var(--sub);font-size:9px;font-weight:600;color:var(--caramel);
+  background:rgba(166,118,74,.06);padding:4px 10px;border-radius:12px;cursor:pointer;
+  border:1px solid rgba(166,118,74,.2);width:100%;transition:background .2s}
+.conj-badge:hover{background:rgba(166,118,74,.12)}
+.conj-pcs{font-family:var(--sub);font-size:11px;color:var(--caramel);font-weight:600;
+  margin-bottom:6px;line-height:1.4}
+.economia{font-family:var(--sub);font-size:11px;font-weight:700;color:#5c8a42;
+  background:rgba(92,138,66,.1);padding:3px 9px;border-radius:20px;
+  white-space:nowrap;border:1px solid rgba(92,138,66,.2)}
+
+/* ══ LIGHTBOX ══ */
+#lightbox{position:fixed;inset:0;z-index:300;background:rgba(10,6,4,.88);
+  display:none;align-items:center;justify-content:center;cursor:zoom-out;
+  backdrop-filter:blur(6px)}
+#lightbox.show{display:flex}
+#lightbox-img{max-width:82vw;max-height:82vh;object-fit:contain;border-radius:12px;
+  box-shadow:0 32px 80px rgba(0,0,0,.5);pointer-events:none}
+#lightbox-close{position:absolute;top:18px;right:22px;background:rgba(255,255,255,.12);
+  border:none;color:#fff;width:36px;height:36px;border-radius:50%;cursor:pointer;
+  font-size:20px;display:flex;align-items:center;justify-content:center;transition:background .2s}
+#lightbox-close:hover{background:rgba(255,255,255,.22)}
+#lightbox-prev,#lightbox-next{position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(255,255,255,.12);border:none;color:#fff;width:44px;height:44px;
+  border-radius:50%;cursor:pointer;font-size:26px;display:flex;align-items:center;
+  justify-content:center;transition:background .2s;z-index:1;line-height:1}
+#lightbox-prev{left:16px}#lightbox-next{right:16px}
+#lightbox-prev:hover,#lightbox-next:hover{background:rgba(255,255,255,.22)}
+#lightbox-dots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
+  display:flex;gap:7px;align-items:center}
+.lb-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);
+  cursor:pointer;transition:background .2s;border:none;padding:0}
+.lb-dot.active{background:#fff}
+
+/* ══ AÇÕES NO THUMB ══ */
+.thumb-actions{position:absolute;bottom:10px;right:10px;display:flex;gap:5px;z-index:3}
+.btn-icon{width:28px;height:28px;border-radius:50%;background:rgba(245,240,222,.88);
+  border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(4px);color:var(--coffee-soft);transition:all .2s;flex-shrink:0}
+.btn-icon:hover{background:rgba(245,240,222,1);color:var(--accent)}
+.btn-icon.ativo{color:#d94f4f;background:rgba(217,79,79,.1)}
+.btn-icon svg{width:12px;height:12px;pointer-events:none}
+/* ══ RIBBON NOVO ══ */
+.ribbon-novo{background:#4a8c42}
+/* ══ DESTAQUE ao chegar no conjunto via badge ══ */
+@keyframes pulse-destaque{
+  0%  {box-shadow:0 0 0 0 rgba(176,99,58,.5),0 16px 40px -18px var(--shadow)}
+  50% {box-shadow:0 0 0 8px rgba(176,99,58,.15),0 16px 40px -18px var(--shadow)}
+  100%{box-shadow:0 0 0 0 rgba(176,99,58,0),0 16px 40px -18px var(--shadow)}
+}
+.card.destaque{outline:2px solid var(--accent);outline-offset:2px;
+  animation:pulse-destaque 1.6s ease-out forwards}
+/* ══ SORT (na linha de chips) ══ */
+#sort-select{flex:0 0 auto;border:1px solid var(--line);border-radius:30px;background:var(--card);
+  font-family:var(--sub);font-size:11.5px;font-weight:600;color:var(--caramel);
+  padding:4px 9px;outline:none;cursor:pointer;transition:border-color .22s}
+#sort-select:hover{border-color:var(--accent)}
+/* ══ BTN TOPO ══ */
+#btn-topo{position:fixed;bottom:24px;right:20px;z-index:50;width:36px;height:36px;
+  border-radius:50%;background:rgba(232,228,214,.92);border:1px solid var(--line);
+  backdrop-filter:blur(8px);cursor:pointer;display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;
+  box-shadow:0 2px 12px rgba(62,42,27,.12);color:var(--coffee-soft)}
+#btn-topo.show{opacity:1;pointer-events:auto}
+#btn-topo:hover{transform:translateY(-2px);background:var(--cream)}
+#btn-topo svg{width:14px;height:14px}
+/* ══ SKELETON ══ */
+.skel-card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.skel-thumb{aspect-ratio:1/1;background:linear-gradient(90deg,var(--line) 25%,var(--cream-2) 50%,var(--line) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skel-body{padding:13px 14px 15px;display:flex;flex-direction:column;gap:8px}
+.skel-line{height:11px;border-radius:6px;background:var(--line);animation:shimmer 1.4s infinite}
+.skel-price{width:38%;height:17px}
+.skel-btn{height:38px;border-radius:12px;background:var(--line);margin-top:8px;animation:shimmer 1.4s infinite}
+/* ══ carregamento */
+#loading{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:80px 20px;gap:14px;color:var(--coffee-soft);font-family:var(--sub);font-size:13px;font-weight:500}
+.spinner{width:28px;height:28px;border:2.5px solid var(--line);border-top-color:var(--caramel);
+  border-radius:50%;animation:spin .75s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* ver mais */
+.ver-mais-wrap{text-align:center;padding:24px 0 8px}
+.ver-mais{font-family:var(--sub);font-weight:600;font-size:12.5px;color:var(--caramel);
+  background:transparent;border:1.5px solid var(--line);border-radius:30px;
+  padding:10px 28px;cursor:pointer;transition:all .2s;letter-spacing:.02em}
+.ver-mais:hover{border-color:var(--caramel);background:rgba(166,118,74,.06)}
+
+@media(max-width:520px){
+  body{overflow-x:hidden}
+  /* ── navbar mobile: esconde @instagram ── */
+  .nav-ig{display:none}
+  /* ── header comprimido ── */
+  .logo-symbol{width:44px;height:44px}
+  .logo-text{max-width:120px}
+  .tagline{font-size:10px;margin-bottom:14px}
+  .controls{padding:8px 12px 8px}
+  /* ── grid e cards ── */
+  .chips{justify-content:flex-start}
+  #catalogo{padding:0 !important}
+  .section{padding:20px 20px 0}
+  .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  #page-colecao > main{padding:12px 0 32px}
+  .body{padding:10px 10px 12px}
+  .body h3{font-size:14px}
+  .desc{font-size:12px}
+  .price{font-size:15px;margin-bottom:16px}
+  .cta{font-size:12px;padding:9px}
+  .section-head h2{font-size:13px}
+  .comprar-hint{white-space:normal;font-size:11px;padding:12px 16px 0}
+  .ft-copy{white-space:normal;font-size:10.5px;text-align:center}
+  .navbar{padding:0 12px}
+  /* lightbox arrows menores no mobile */
+  #lightbox-prev,#lightbox-next{width:34px;height:34px;font-size:20px}
+  #lightbox-prev{left:8px}#lightbox-next{right:8px}
+  /* sobre: força coluna única no mobile */
+  .sobre-wrap{display:flex !important;flex-direction:column;align-items:stretch;gap:20px;padding:24px 16px 28px}
+  .sobre-img-col{order:1}
+  .sobre-img-box{width:200px !important;margin:0 auto !important;display:block}
+  .sobre-img-box img{max-height:200px;object-fit:contain}
+  .sobre-text-col{order:2;text-align:center}
+  .sobre-sign{text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<!-- ══ NAVBAR FIXA ══ -->
+<nav class="navbar">
+  <a class="nav-brand" id="navBrand" href="#">
+    <img src="logo-simbolo.png" alt="" class="nav-brand-symbol">
+    <!-- no mobile substitui o logo-texto que some com o scroll -->
+    <span class="nav-brand-name">Trama de Cristais</span>
+  </a>
+  <div class="nav-center">
+    <button class="nav-btn active" id="btnColecao" onclick="showPage('colecao')">Coleção</button>
+    <button class="nav-btn" id="btnSobre" onclick="showPage('sobre')">Sobre</button>
+  </div>
+  <a class="nav-ig" id="navIg" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.86.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.2 8.8 2.2 12 2.2m0 4.86A4.94 4.94 0 1 0 16.94 12 4.94 4.94 0 0 0 12 7.06m0 8.14A3.2 3.2 0 1 1 15.2 12 3.2 3.2 0 0 1 12 15.2m5.13-8.39a1.15 1.15 0 1 0 1.15 1.15 1.15 1.15 0 0 0-1.15-1.15"/></svg>
+    <span class="nav-ig-label">@tramadecristais</span>
+  </a>
+</nav>
+
+<!-- ══ PÁGINA: COLEÇÃO ══ -->
+<div id="page-colecao" class="page">
+  <div class="controls">
+    <img src="logo-simbolo.png" alt="" class="logo-symbol">
+    <img src="logo-texto.png" alt="Trama de Cristais" class="logo-text">
+    <p class="tagline" id="tagline"></p>
+    <div class="search-wrap">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="search" type="text" placeholder="Buscar uma peça…" autocomplete="off">
+      <button id="search-clear" aria-label="Limpar busca">✕</button>
+    </div>
+    <div class="chips-wrap"><div class="chips" id="chips"></div></div>
+  </div>
+  <p class="comprar-hint">Gostou de uma peça? Toque em <strong>"Tenho interesse"</strong> e chame no Direct — combinamos tudo por lá</p>
+  <main id="catalogo"></main>
+</div>
+
+<!-- ══ PÁGINA: SOBRE ══ -->
+<div id="page-sobre" class="page">
+  <div class="sobre-wrap">
+    <div class="sobre-img-col">
+      <!-- substitua o src pela foto da Luciana quando disponível -->
+      <div class="sobre-img-box">
+        <img src="LOGO ORIGINAL - Centralizado.jpg" alt="Trama de Cristais">
+      </div>
+    </div>
+    <div class="sobre-text-col">
+      <p class="sobre-label">Feito à mão · Com afeto</p>
+      <h2 class="sobre-title">Cada peça nasce de uma trama única.</h2>
+      <p class="sobre-text">A Trama de Cristais nasceu de um desejo simples: criar algo que tocasse as pessoas de verdade. Luciana, de família italiana, cresceu dentro de uma tradição onde beleza e trabalho manual andam sempre juntos — e foi dessa herança que surgiu o amor pela arte de tecer cristais com as próprias mãos.</p>
+      <p class="sobre-text">Cada peça é tecida fio a fio, cristal a cristal. Não existe produção em série: o que você encontra aqui é o resultado de horas de cuidado, de um trabalho que carrega intenção desde o primeiro nó até o último acabamento.</p>
+      <p class="sobre-text">A Trama começou em abril de 2026 — e desde então, cada peça encontrou quem a esperava.</p>
+      <p class="sobre-sign">— Luciana, fundadora e artesã</p>
+    </div>
+  </div>
+
+  <!-- ══ PILARES DA MARCA ══ -->
+  <div class="valores-wrap">
+    <div class="valores-grid">
+      <div class="valor-item"><span class="valor-icon">🧶</span><span class="valor-label">Feito à mão</span></div>
+      <div class="valor-item"><span class="valor-icon">💎</span><span class="valor-label">Cristais selecionados</span></div>
+      <div class="valor-item"><span class="valor-icon">✨</span><span class="valor-label">Tradição italiana</span></div>
+      <div class="valor-item"><span class="valor-icon">🤎</span><span class="valor-label">Peças únicas</span></div>
+    </div>
+  </div>
+
+  <!-- ══ GALERIA DO EVENTO ══ -->
+  <div class="evento-section">
+    <p class="sobre-label">Onde tudo começou</p>
+    <h2 class="evento-title">O lançamento da Trama de Cristais</h2>
+    <p class="evento-sub">Em abril de 2026, cercada de afeto,<br>foi assim que tudo começou.</p>
+    <div class="evento-grid">
+      <!-- Quando tiver as fotos, substitua cada <span class="evento-ph"> por <img src="URL" alt="Evento"> -->
+      <div class="evento-foto-wrap"><span class="evento-ph">📷</span></div>
+      <div class="evento-foto-wrap"><span class="evento-ph">📷</span></div>
+      <div class="evento-foto-wrap"><span class="evento-ph">📷</span></div>
+      <div class="evento-foto-wrap"><span class="evento-ph">📷</span></div>
+    </div>
+  </div>
+
+  <!-- ══ COMO ADQUIRIR ══ -->
+  <div class="como-comprar">
+    <h2 class="cc-title">Como adquirir sua peça</h2>
+    <div class="cc-steps">
+      <div class="cc-step">
+        <span class="num">1</span><span class="emoji">💎</span>
+        <p>Escolha sua <strong>peça favorita</strong> na coleção</p>
+      </div>
+      <div class="cc-step">
+        <span class="num">2</span><span class="emoji">💬</span>
+        <p>Toque em <strong>"Tenho interesse"</strong> — a mensagem já vai pronta pro nosso Direct</p>
+      </div>
+      <div class="cc-step">
+        <span class="num">3</span><span class="emoji">✨</span>
+        <p>Combinamos os detalhes, o <strong>pagamento é via Pix</strong> e enviamos pelos Correios para todo o Brasil 🤎</p>
+      </div>
+    </div>
+    <p class="cc-note">Cada peça é embalada com cuidado e enviada com muito carinho</p>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <p class="ft-invite" id="ftInvite">Deseja ver outras fotos e acompanhar as novidades? Acesse nosso Instagram.</p>
+  <a class="ft-btn" id="ftInsta" href="#" target="_blank" rel="noopener">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.86.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.2 8.8 2.2 12 2.2m0 4.86A4.94 4.94 0 1 0 16.94 12 4.94 4.94 0 0 0 12 7.06m0 8.14A3.2 3.2 0 1 1 15.2 12 3.2 3.2 0 0 1 12 15.2m5.13-8.39a1.15 1.15 0 1 0 1.15 1.15 1.15 1.15 0 0 0-1.15-1.15"/></svg>
+    Ver no Instagram
+  </a>
+  <div><button class="ft-link" id="ftDm">ou fale agora no Direct</button></div>
+  <p class="ft-copy">© 2026 Trama de Cristais · Crochê Artesanal feito à mão, fio a fio · Entrega para todo o Brasil</p>
+</footer>
+
+<div id="toast"></div>
+
+<!-- ══ LIGHTBOX com galeria ══ -->
+<div id="lightbox">
+  <button id="lightbox-close" onclick="event.stopPropagation();fecharZoom()" aria-label="Fechar">✕</button>
+  <button id="lightbox-prev" onclick="lightboxNavegar(-1,event)" aria-label="Foto anterior" style="display:none">&#8249;</button>
+  <img id="lightbox-img" src="" alt="">
+  <button id="lightbox-next" onclick="lightboxNavegar(1,event)" aria-label="Próxima foto" style="display:none">&#8250;</button>
+  <div id="lightbox-dots"></div>
+</div>
+
+<script>
+/* ══ CONFIG ══ */
+const CONFIG = {
+  instagram:       'tramadecristais',
+  nomeLoja:        'Trama de Cristais',
+  slogan:          'Crochê artesanal com cristais, inspirado na tradição italiana · peças exclusivas',
+  /* {titulo}, {codigo} e {preco} são substituídos automaticamente */
+  mensagem:        'Olá! Tenho interesse na peça {titulo} (código {codigo}) - R$ {preco} 🌟',
+  mostrarVendidos: true,
+  sheetCsvUrl:     'https://script.google.com/macros/s/AKfycbxxI2sPvb3WSA-wPLoT0Jer_RRhjDb4NuF4dgqzuqd6E6fWjUjKUXr-a1Cr5ZhutoHR/exec'
+};
+
+const ORDEM_CATEGORIAS = ['Colares Volta Única','Colares Multi Voltas','Pulseiras','Conjuntos','Cordão de Óculos'];
+const COR_CATEGORIA = {
+  'Colares Multi Voltas':['#7A5230','#A6764A'],
+  'Colares Volta Única': ['#9A6B3F','#C49A6B'],
+  'Pulseiras':           ['#8A6A45','#BFA177'],
+  'Cordão de Óculos':    ['#7A6040','#B09060'],
+  'Conjuntos':           ['#7A4A2C','#B0633A']
+};
+const COR_PADRAO = ['#6B4F38','#A6764A'];
+
+/* ══ HELPERS ══ */
+const ICON_IG=`<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.86.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.2 8.8 2.2 12 2.2m0 4.86A4.94 4.94 0 1 0 16.94 12 4.94 4.94 0 0 0 12 7.06m0 8.14A3.2 3.2 0 1 1 15.2 12 3.2 3.2 0 0 1 12 15.2m5.13-8.39a1.15 1.15 0 1 0 1.15 1.15 1.15 1.15 0 0 0-1.15-1.15"/></svg>`;
+const ICON_HEART=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>`;
+const ICON_HEART_FILLED=`<svg viewBox="0 0 24 24" fill="#d94f4f" stroke="#d94f4f" stroke-width="1"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>`;
+const ICON_SHARE=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`;
+const escHTML=s=>(s||'').toString().replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const debounce=(fn,ms)=>{let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>fn(...a),ms);};};
+
+/* ══ DADOS ══ */
+let DADOS = [];
+let paginaAtual = 0;
+const POR_PAGINA = 50;
+
+/* ══ NAVEGAÇÃO DE PÁGINAS (com histórico do browser) ══ */
+function showPage(p, fromPop=false){
+  document.getElementById('page-colecao').classList.toggle('ativa', p==='colecao');
+  document.getElementById('page-sobre').classList.toggle('ativa',   p==='sobre');
+  document.getElementById('btnColecao').classList.toggle('active',  p==='colecao');
+  document.getElementById('btnSobre').classList.toggle('active',    p==='sobre');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(!fromPop) try{ history.pushState({page:p},'','#'+p); }catch(e){}
+}
+window.addEventListener('popstate', e => {
+  const pg = e.state?.page || (location.hash==='#sobre' ? 'sobre' : 'colecao');
+  showPage(pg, true);
+});
+
+/* ══ MOTOR ══ */
+let porCodigo={};
+let porConjunto={};
+let filtroCat='todos';
+let ordenacao='padrao';
+let FAVORITOS=JSON.parse(localStorage.getItem('tdc_fav')||'[]');
+const brl = n => Number(n).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+const indexar = () => {
+  porCodigo={};porConjunto={};
+  DADOS.forEach(p=>{
+    if(p.codigo)porCodigo[p.codigo.trim().toUpperCase()]=p;
+    (p.componentes||[]).forEach(cod=>{
+      if(!porConjunto[cod])porConjunto[cod]=[];
+      porConjunto[cod].push(p);
+    });
+  });
+};
+
+function estaDisponivel(p){
+  if(p.disponivel===false) return false;
+  if(p.componentes?.length) return p.componentes.every(c=>{ const x=porCodigo[c.trim().toUpperCase()]; return x?x.disponivel!==false:false; });
+  return true;
+}
+function catsOrdenadas(){
+  const presentes=[...new Set(DADOS.map(p=>p.categoria).filter(Boolean))];
+  return presentes.sort((a,b)=>{
+    let ia=ORDEM_CATEGORIAS.findIndex(x=>x.toLowerCase()===a.toLowerCase());
+    let ib=ORDEM_CATEGORIAS.findIndex(x=>x.toLowerCase()===b.toLowerCase());
+    if(ia<0)ia=99;if(ib<0)ib=99;return ia-ib||a.localeCompare(b);
+  });
+}
+const corDe = cat => { const k=Object.keys(COR_CATEGORIA).find(x=>x.toLowerCase()===(cat||'').toLowerCase()); return k?COR_CATEGORIA[k]:COR_PADRAO; };
+function mostrarToast(txt, dur=3600){ const t=document.getElementById('toast'); t.textContent=txt; t.classList.add('show'); clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove('show'),dur); }
+
+/* ══ SKELETON ══ */
+function skeletonHTML(n=8){
+  let h='<section class="section"><div class="grid">';
+  for(let i=0;i<n;i++){
+    h+=`<div class="skel-card"><div class="skel-thumb"></div><div class="skel-body"><div class="skel-line" style="width:70%"></div><div class="skel-line" style="width:50%"></div><div class="skel-line skel-price"></div><div class="skel-btn"></div></div></div>`;
+  }
+  return h+'</div></section>';
+}
+
+/* ══ LIGHTBOX com galeria ══ */
+let _lbImgs = [];
+let _lbIdx  = 0;
+let _lbAlt  = '';
+
+function abrirZoom(imgs, alt){
+  _lbImgs = Array.isArray(imgs) ? imgs.filter(Boolean) : [imgs].filter(Boolean);
+  if(!_lbImgs.length) return;
+  _lbIdx = 0;
+  _lbAlt = alt || '';
+  _atualizarLightbox();
+  document.getElementById('lightbox').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+
+/* zoom a partir do código do produto (busca imagens da planilha) */
+function abrirProdutoZoom(cod){
+  const p = porCodigo[cod.toUpperCase()];
+  if(!p) return;
+  const imgs = (p.imagem||'').split(',').map(s=>s.trim()).filter(Boolean);
+  abrirZoom(imgs, p.titulo||'');
+}
+
+function _atualizarLightbox(){
+  document.getElementById('lightbox-img').src = _lbImgs[_lbIdx];
+  document.getElementById('lightbox-img').alt = _lbAlt;
+  const multi = _lbImgs.length > 1;
+  document.getElementById('lightbox-prev').style.display = multi ? 'flex' : 'none';
+  document.getElementById('lightbox-next').style.display = multi ? 'flex' : 'none';
+  const dotsEl = document.getElementById('lightbox-dots');
+  dotsEl.innerHTML = multi
+    ? _lbImgs.map((_,i)=>`<button class="lb-dot${i===_lbIdx?' active':''}" onclick="irParaFoto(${i});event.stopPropagation()" aria-label="Foto ${i+1}"></button>`).join('')
+    : '';
+}
+
+function lightboxNavegar(dir, ev){
+  if(ev) ev.stopPropagation();
+  _lbIdx = (_lbIdx + dir + _lbImgs.length) % _lbImgs.length;
+  _atualizarLightbox();
+}
+function irParaFoto(i){ _lbIdx=i; _atualizarLightbox(); }
+function fecharZoom(){
+  document.getElementById('lightbox').classList.remove('show');
+  document.body.style.overflow='';
+}
+
+/* ══ COMPARTILHAR ══ */
+async function compartilhar(titulo,cod){
+  const url=window.location.href.split('#')[0]+(cod?'#'+cod:'');
+  if(navigator.share){
+    try{ await navigator.share({title:titulo+' · '+CONFIG.nomeLoja,url}); return; }catch(e){}
+  }
+  try{
+    await navigator.clipboard.writeText(url);
+    mostrarToast('Link copiado! 🔗');
+  }catch(e){ mostrarToast('Link: '+url); }
+}
+
+/* ══ FAVORITOS ══ */
+function toggleFav(cod,ev){
+  if(ev)ev.stopPropagation();
+  const i=FAVORITOS.indexOf(cod);
+  if(i>=0) FAVORITOS.splice(i,1); else FAVORITOS.push(cod);
+  localStorage.setItem('tdc_fav',JSON.stringify(FAVORITOS));
+  const btn=document.querySelector(`.btn-fav[data-cod="${CSS.escape(cod)}"]`);
+  if(btn){
+    const ativo=FAVORITOS.includes(cod);
+    btn.classList.toggle('ativo',ativo);
+    btn.innerHTML=ativo?ICON_HEART_FILLED:ICON_HEART;
+  }
+  buildChips();
+  if(filtroCat==='favoritos'){paginaAtual=0;render();}
+}
+
+/* ══ PARSE DE DATA DO CARIMBO ══ */
+function parseCarimbo(s){
+  if(!s) return new Date(0);
+  /* formato: "2026/06/01 17:59:31" → "2026-06-01T17:59:31" */
+  const norm = s.replace(/\//g,'-').replace(' ','T');
+  const d = new Date(norm);
+  return isNaN(d.getTime()) ? new Date(0) : d;
+}
+
+/* ══ ORDENAÇÃO ══ */
+function aplicarOrdem(itens){
+  const avail=itens.filter(p=>estaDisponivel(p));
+  const off  =itens.filter(p=>!estaDisponivel(p));
+  const sort=arr=>{
+    const a=[...arr];
+    if(ordenacao==='menor') return a.sort((x,y)=>Number(x.preco)-Number(y.preco));
+    if(ordenacao==='maior') return a.sort((x,y)=>Number(y.preco)-Number(x.preco));
+    if(ordenacao==='az')    return a.sort((x,y)=>(x.titulo||'').localeCompare(y.titulo||'','pt'));
+    if(ordenacao==='novo')  return a.sort((x,y)=>parseCarimbo(y.carimbo)-parseCarimbo(x.carimbo));
+    return a;
+  };
+  return [...sort(avail),...sort(off)];
+}
+
+/* ══ DM DE INTERESSE ══ */
+function dmInteresse(titulo, codigo, preco){
+  const msg = CONFIG.mensagem
+    .replace('{titulo}', titulo)
+    .replace('{codigo}', codigo||'—')
+    .replace('{preco}',  preco||'?');
+  try{
+    if(navigator.clipboard?.writeText){
+      navigator.clipboard.writeText(msg).catch(()=>{});
+    } else {
+      const el=document.createElement('textarea');
+      el.value=msg;el.style.position='fixed';el.style.opacity='0';
+      document.body.appendChild(el);el.focus();el.select();
+      document.execCommand('copy');document.body.removeChild(el);
+    }
+  }catch(e){}
+  mostrarToast('✓ Mensagem copiada! Cole no Direct do Instagram 💬', 4500);
+  setTimeout(()=>window.open(`https://ig.me/m/${CONFIG.instagram}`,'_blank'),650);
+}
+
+/* ══ HELPERS DE CARD ══ */
+function catCurta(cat){
+  return (cat||'')
+    .replace(/^Colares /,'Colar ')
+    .replace(/^Pulseiras$/,'Pulseira');
+}
+
+function cardHTML(p, idx){
+  const off=!estaDisponivel(p);
+  const g=corDe(p.categoria);
+  const cod=p.codigo?p.codigo.trim().toUpperCase():'';
+  const titSafe=(p.titulo||'').replace(/'/g,"\\'").replace(/"/g,'&quot;');
+  const favAtivo=cod&&FAVORITOS.includes(cod);
+
+  /* imagens: suporta múltiplas URLs separadas por vírgula */
+  const imgs=(p.imagem||'').split(',').map(s=>s.trim()).filter(Boolean);
+  const onclickZoom = cod
+    ? `abrirProdutoZoom('${cod}')`
+    : (imgs.length ? `abrirZoom(['${imgs[0].replace(/'/g,"\\'")}'],'${titSafe}')` : '');
+  const thumb = imgs.length
+    ? `<img src="${imgs[0]}" alt="${escHTML(p.titulo)}" loading="lazy"${onclickZoom?` onclick="${onclickZoom}" style="cursor:zoom-in"`:''}>`
+    : `<div class="ph" style="background:linear-gradient(135deg,${g[0]},${g[1]})"><span class="ring"></span><span class="initial">${(p.titulo||'?').charAt(0)}</span></div>`;
+
+  const thumbActions=cod
+    ?`<div class="thumb-actions">
+        <button class="btn-icon btn-fav ${favAtivo?'ativo':''}" data-cod="${cod}" onclick="toggleFav('${cod}',event)" title="${favAtivo?'Remover dos favoritos':'Adicionar aos favoritos'}">${favAtivo?ICON_HEART_FILLED:ICON_HEART}</button>
+        <button class="btn-icon" onclick="compartilhar('${titSafe}','${cod}')" title="Compartilhar">${ICON_SHARE}</button>
+      </div>`
+    :'';
+
+  /* preço: original riscado primeiro, depois preço final em destaque */
+  const descVal=(p.novoValorDesconto!==null&&p.novoValorDesconto!==undefined&&p.novoValorDesconto!=='')?parseFloat(p.novoValorDesconto):0;
+  const temDesc=isFinite(descVal)&&descVal>0&&descVal<Number(p.preco);
+  const precoFinal=temDesc?descVal:Number(p.preco);
+  const precoOld=temDesc?`<span class="old">R$ ${brl(p.preco)}</span>`:'';
+
+  /* tag sempre mostra a categoria */
+  const tagLabel = catCurta(p.categoria) || 'Peça única';
+
+  const cta=off
+    ?`<button class="cta off" disabled>Esgotado</button>`
+    :`<button class="cta" onclick="dmInteresse('${titSafe}','${p.codigo||''}','${brl(precoFinal)}')">${ICON_IG}Tenho interesse</button>`;
+  const ribbonOuNovo=off?'<span class="ribbon">Vendido</span>':(p.lancamento?'<span class="ribbon ribbon-novo">Novo</span>':'');
+
+  const conjBadge=(()=>{
+    if(!cod||p.ehConjunto)return '';
+    const conjs=porConjunto[cod];
+    if(!conjs?.length)return '';
+    const c=conjs[0];
+    if(!estaDisponivel(c))return '';
+    const id='conj-'+(c.codigo||c.titulo||'').toLowerCase().replace(/\s+/g,'-');
+    return `<button class="conj-badge" onclick="irParaConjunto('${id}')">✦ Disponível em conjunto →</button>`;
+  })();
+
+  return `<article class="card ${off?'off':''}" data-i="${idx}"${cod?` data-cod="${cod}"`:''}>\n    <div class="thumb">${thumb}<span class="tag">${tagLabel}</span>${cod?`<span class="codigo">${cod}</span>`:''}${ribbonOuNovo}${thumbActions}</div>\n    <div class="body"><h3>${escHTML(p.titulo)}</h3><p class="desc">${escHTML(p.desc)}</p>\n    ${conjBadge}<div class="price">${precoOld}<span class="cur">R$</span> ${brl(precoFinal)}</div>${cta}</div>\n  </article>`;
+}
+
+function conjuntoCardHTML(p,idx){
+  const off=!estaDisponivel(p);
+  const comps=(p.componentes||[]).map(c=>porCodigo[c]).filter(Boolean);
+  const cod=p.codigo?p.codigo.trim().toUpperCase():'';
+  const titSafeC=(p.titulo||'').replace(/'/g,"\\'").replace(/"/g,'&quot;');
+  const favAtivo=cod&&FAVORITOS.includes(cod);
+
+  const thumbItems=[];
+  for(let i=0;i<2;i++){
+    const c=comps[i];
+    if(c?.imagem){
+      const cImg=c.imagem.split(',')[0].trim();
+      thumbItems.push(`<img src="${cImg}" alt="${escHTML(c.titulo||'')}" loading="lazy">`);
+    } else {
+      const gc=c?corDe(c.categoria):corDe(p.categoria);
+      thumbItems.push(`<div class="ph" style="background:linear-gradient(135deg,${gc[0]},${gc[1]})"><span class="ring"></span><span class="initial">${(c?.titulo||p.titulo||'C').charAt(0)}</span></div>`);
+    }
+  }
+  const splitThumb=`<div class="split-thumb">${thumbItems.join('')}</div>`;
+  const thumbActions=cod
+    ?`<div class="thumb-actions">
+        <button class="btn-icon btn-fav ${favAtivo?'ativo':''}" data-cod="${cod}" onclick="toggleFav('${cod}',event)" title="${favAtivo?'Remover dos favoritos':'Adicionar aos favoritos'}">${favAtivo?ICON_HEART_FILLED:ICON_HEART}</button>
+        <button class="btn-icon" onclick="compartilhar('${titSafeC}','${cod}')" title="Compartilhar">${ICON_SHARE}</button>
+      </div>`
+    :'';
+
+  /* preço: soma individual riscada primeiro, depois preço do conjunto */
+  const precoConj=Number(p.preco);
+  const somaInd=comps.reduce((acc,c)=>acc+Number(c.preco),0);
+  const temDesc=somaInd>precoConj&&somaInd>0;
+  const economia=temDesc?`<span class="economia">economia de R$ ${brl(somaInd-precoConj)}</span>`:'';
+  const precoOld=temDesc?`<span class="old">R$ ${brl(somaInd)}</span>`:'';
+  const compNomes=comps.map(c=>c.titulo).filter(Boolean).join(' + ');
+
+  const cta=off
+    ?`<button class="cta off" disabled>Esgotado</button>`
+    :`<button class="cta" onclick="dmInteresse('${titSafeC}','${p.codigo||''}','${brl(precoConj)}')">${ICON_IG}Tenho interesse</button>`;
+  const ribbonOuNovo=off?'<span class="ribbon">Vendido</span>':(p.lancamento?'<span class="ribbon ribbon-novo">Novo</span>':'');
+  const id='conj-'+(p.codigo||p.titulo||'').toLowerCase().replace(/\s+/g,'-');
+
+  return `<article class="card card-wide ${off?'off':''}" id="${id}" data-i="${idx}"${cod?` data-cod="${cod}"`:''}>\n    <div class="thumb">${splitThumb}<span class="tag">Conjunto</span>${cod?`<span class="codigo">${cod}</span>`:''}${ribbonOuNovo}${thumbActions}</div>\n    <div class="body"><h3>${escHTML(p.titulo)}</h3>${compNomes?`<p class="conj-pcs">${compNomes}</p>`:''}<p class="desc">${escHTML(p.desc)}</p>\n    <div class="price">${precoOld}<span class="cur">R$</span> ${brl(precoConj)} ${economia}</div>${cta}</div>\n  </article>`;
+}
+
+/* ══ NAVEGAR ATÉ CONJUNTO (muda filtro se necessário + destaque visual) ══ */
+function irParaConjunto(id){
+  if(!document.getElementById(id)){
+    filtroCat='todos';
+    paginaAtual=0;
+    render();
+    buildChips();
+  }
+  /* retry até o card aparecer no DOM (max 2s), depois rola e destaca */
+  let t=0;
+  const ir=()=>{
+    const el=document.getElementById(id);
+    if(el){
+      el.scrollIntoView({behavior:'smooth',block:'center'});
+      el.classList.remove('destaque'); /* reinicia animação se clicar 2x */
+      void el.offsetWidth;
+      el.classList.add('destaque');
+      setTimeout(()=>el.classList.remove('destaque'),1800);
+    } else if(t++<15){
+      setTimeout(ir,130);
+    }
+  };
+  setTimeout(ir,60);
+}
+
+/* ══ RENDER ══ */
+function render(){
+  indexar();
+  const termo=(document.getElementById('search').value||'').toLowerCase().trim();
+  const main=document.getElementById('catalogo');
+  let html='',total=0,gi=0;
+
+  if(filtroCat==='favoritos'){
+    let itens=DADOS.filter(p=>FAVORITOS.includes((p.codigo||'').trim().toUpperCase()));
+    if(termo)itens=itens.filter(p=>((p.titulo||'')+(p.desc||'')+(p.codigo||'')+(p.categoria||'')).toLowerCase().includes(termo));
+    itens=aplicarOrdem(itens);
+    total=itens.length;
+    if(total){
+      html=`<section class="section"><div class="grid">`;
+      itens.forEach(p=>{html+=p.ehConjunto?conjuntoCardHTML(p,gi++):cardHTML(p,gi++);});
+      html+=`</div></section>`;
+    }
+  } else if(filtroCat==='todos'){
+    let itens=DADOS.slice();
+    if(!CONFIG.mostrarVendidos)itens=itens.filter(p=>estaDisponivel(p));
+    if(termo)itens=itens.filter(p=>((p.titulo||'')+(p.desc||'')+(p.codigo||'')+(p.categoria||'')).toLowerCase().includes(termo));
+    itens=aplicarOrdem(itens);
+    total=itens.length;
+    if(total){
+      const visiveis=itens.slice(0,(paginaAtual+1)*POR_PAGINA);
+      const faltam=itens.length-visiveis.length;
+      html=`<section class="section"><div class="grid">`;
+      visiveis.forEach(p=>{html+=p.ehConjunto?conjuntoCardHTML(p,gi++):cardHTML(p,gi++);});
+      html+=`</div></section>`;
+      if(faltam>0)html+=`<div class="ver-mais-wrap"><button class="ver-mais" onclick="verMais()">Ver mais · ${faltam} ${faltam===1?'peça':'peças'}</button></div>`;
+    }
+  } else {
+    catsOrdenadas().forEach(cat=>{
+      if(filtroCat!=='por-categoria'&&filtroCat!==cat)return;
+      let itens=DADOS.filter(p=>p.categoria===cat);
+      if(!CONFIG.mostrarVendidos)itens=itens.filter(p=>estaDisponivel(p));
+      if(termo)itens=itens.filter(p=>((p.titulo||'')+(p.desc||'')+(p.codigo||'')+cat).toLowerCase().includes(termo));
+      itens=aplicarOrdem(itens);
+      if(!itens.length)return;
+      total+=itens.length;
+      html+=`<section class="section"><div class="section-head"><span class="diamond">◆</span><h2>${cat}</h2><span class="ln"></span><span class="ct">${itens.length} ${itens.length===1?'peça':'peças'}</span></div><div class="grid">`;
+      itens.forEach(p=>{html+=p.ehConjunto?conjuntoCardHTML(p,gi++):cardHTML(p,gi++);});
+      html+=`</div></section>`;
+    });
+  }
+
+  if(!total)html=`<div class="empty">${filtroCat==='favoritos'?'Nenhum favorito ainda. ♡<br><small style="font-style:normal;font-size:13px;display:block;margin-top:8px">Clique no ♡ nos cards para guardar suas peças preferidas.</small>':'Nenhuma peça encontrada. ✨'}</div>`;
+  main.innerHTML=html;
+  requestAnimationFrame(()=>{document.querySelectorAll('.card').forEach((el,i)=>setTimeout(()=>el.classList.add('in'),Math.min(i*45,400)));});
+}
+function verMais(){ paginaAtual++; render(); }
+
+function buildChips(){
+  const wrap=document.getElementById('chips');
+  const favCount=FAVORITOS.length;
+  let html=`<button class="chip${filtroCat==='todos'?' active':''}" data-c="todos">Tudo</button><button class="chip${filtroCat==='por-categoria'?' active':''}" data-c="por-categoria">Por Categoria</button>`;
+  catsOrdenadas().forEach(c=>html+=`<button class="chip${filtroCat===c?' active':''}" data-c="${c}">${c}</button>`);
+  html+=`<button class="chip${filtroCat==='favoritos'?' active':''}" data-c="favoritos">❤ Favoritos${favCount?` (${favCount})`:''}</button>`;
+  const opts=[['padrao','≡ Ordenar'],['menor','Menor preço'],['maior','Maior preço'],['az','A → Z'],['novo','Mais novos']];
+  html+=`<select id="sort-select" onchange="ordenacao=this.value;paginaAtual=0;render()">${opts.map(o=>`<option value="${o[0]}"${ordenacao===o[0]?' selected':''}>${o[1]}</option>`).join('')}</select>`;
+  wrap.innerHTML=html;
+  wrap.querySelectorAll('.chip').forEach(ch=>ch.addEventListener('click',()=>{
+    wrap.querySelector('.active')?.classList.remove('active');ch.classList.add('active');
+    filtroCat=ch.dataset.c;paginaAtual=0;render();
+    window.scrollTo({top:document.querySelector('.controls').offsetTop-60,behavior:'smooth'});
+  }));
+}
+
+/* ══ CARREGA PLANILHA ══ */
+function carregarSheet(){
+  return new Promise((resolve)=>{
+    const cb='_cb'+Date.now();
+    window[cb]=function(rows){
+      try{
+        const norm=s=>s.toString().toLowerCase().trim()
+          .normalize('NFD').replace(/[̀-ͯ]/g,'')
+          .replace(/\s+/g,'_').replace(/[?]/g,'');
+        const novos=[];
+        for(const row of rows){
+          const r={};
+          Object.keys(row).forEach(k=>r[norm(k)]=row[k]);
+          if(!Object.values(r).some(v=>v!==''))continue;
+          const disp=(r['disponivel_para_venda']||'sim').toString().trim().toLowerCase();
+          const pecasConj=(r['pecas_conjunto']||'').toString().trim();
+          const ehConjunto=pecasConj!=='';
+          const componentes=ehConjunto?pecasConj.replace(/\se\s/gi,',').split(',').map(s=>s.trim().toUpperCase()).filter(Boolean):[];
+          const catForm=(r['categoria']||'').toString().trim();
+          const categoria=ehConjunto?'Conjuntos':catForm;
+          novos.push({
+            codigo:(r['codigo']||'').toString().trim(),
+            categoria,
+            titulo:(r['nome_do_produto']||'').toString().trim(),
+            desc:(r['descricao']||'').toString().trim(),
+            preco:parseFloat((r['preco']||'0').toString().replace(/[^\d,.]/g,'').replace(',','.'))||0,
+            novoValorDesconto:(()=>{
+              const raw=r['preco_promocional']??r['preco_pomocional']??'';
+              const v=raw.toString().trim();
+              if(!v||v==='0'||v===''||v==='null'||v==='undefined')return null;
+              const n=parseFloat(v.replace(/[^\d,.]/g,'').replace(',','.'));
+              return(isFinite(n)&&n>0)?n:null;
+            })(),
+            disponivel:!['nao','não','no','false','vendido','0',''].includes(disp),
+            imagem:(r['foto']||'').toString().trim(),
+            ehConjunto,
+            componentes,
+            lancamento:(r['lancamento']||'').toString().trim().toLowerCase()==='sim',
+            /* carimbo de data/hora para ordenação "Mais novos" */
+            carimbo:(r['carimbo_de_data/hora']||r['carimbo_de_data_hora']||'').toString().trim(),
+            _idx:novos.length
+          });
+        }
+        if(novos.length)DADOS=novos;
+      }catch(err){console.warn('Erro ao processar dados.',err);}
+      delete window[cb];
+      document.head.removeChild(s);
+      resolve();
+    };
+    const s=document.createElement('script');
+    s.src=CONFIG.sheetCsvUrl+'?callback='+cb;
+    s.onerror=()=>{console.warn('Planilha não carregada.');resolve();};
+    document.head.appendChild(s);
+  });
+}
+
+/* ══ AUTO-REFRESH SILENCIOSO (10 min) ══ */
+async function autoRefresh(){
+  const snapAntes=JSON.stringify(DADOS);
+  await carregarSheet();
+  if(JSON.stringify(DADOS)!==snapAntes){
+    /* dados mudaram: re-renderiza sem mexer no scroll */
+    const scrollY=window.scrollY;
+    render();
+    requestAnimationFrame(()=>window.scrollTo(0,scrollY));
+  }
+}
+
+/* ══ INIT ══ */
+async function init(){
+  document.title=`${CONFIG.nomeLoja} · Catálogo`;
+  document.getElementById('tagline').textContent=CONFIG.slogan;
+  document.getElementById('ftInsta').href=`https://www.instagram.com/${CONFIG.instagram}/`;
+  document.getElementById('navIg').href=`https://www.instagram.com/${CONFIG.instagram}/`;
+  document.getElementById('navBrand').onclick=e=>{e.preventDefault();showPage('colecao');};
+
+  document.getElementById('ftDm').addEventListener('click',()=>{
+    navigator.clipboard?.writeText('Olá! Vim pelo catálogo da Trama de Cristais 💛').catch(()=>{});
+    mostrarToast('Pode chamar no Direct, te espero lá 💬');
+    setTimeout(()=>window.open(`https://ig.me/m/${CONFIG.instagram}`,'_blank'),550);
+  });
+
+  /* busca com debounce + botão limpar */
+  const searchEl=document.getElementById('search');
+  const clearBtn=document.getElementById('search-clear');
+  searchEl.addEventListener('input',debounce(()=>{
+    clearBtn.classList.toggle('show', searchEl.value.length>0);
+    paginaAtual=0;render();
+  },250));
+  clearBtn.addEventListener('click',()=>{
+    searchEl.value='';
+    clearBtn.classList.remove('show');
+    searchEl.focus();
+    paginaAtual=0;render();
+  });
+
+  /* lightbox: fechar ao clicar no fundo + swipe para navegar (mobile) */
+  const lb=document.getElementById('lightbox');
+  let _txStart=0, _swiped=false;
+  lb.addEventListener('touchstart',e=>{_txStart=e.touches[0].clientX;_swiped=false;},{passive:true});
+  lb.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-_txStart;
+    if(Math.abs(dx)>50&&_lbImgs.length>1){
+      _swiped=true;
+      lightboxNavegar(dx<0?1:-1);
+    }
+  },{passive:true});
+  lb.addEventListener('click',e=>{
+    if(_swiped){_swiped=false;return;}
+    if(e.target===lb||e.target===document.getElementById('lightbox-img')) fecharZoom();
+  });
+
+  /* teclado: Escape fecha lightbox, setas navegam galeria */
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape') fecharZoom();
+    if(document.getElementById('lightbox').classList.contains('show')){
+      if(e.key==='ArrowLeft')  lightboxNavegar(-1);
+      if(e.key==='ArrowRight') lightboxNavegar(1);
+    }
+  });
+
+  /* botão voltar ao topo */
+  window.addEventListener('scroll',()=>{
+    document.getElementById('btn-topo').classList.toggle('show',window.scrollY>300);
+  },{passive:true});
+
+  /* skeleton enquanto carrega */
+  document.getElementById('catalogo').innerHTML=skeletonHTML();
+  showPage('colecao');
+
+  if(CONFIG.sheetCsvUrl){
+    await carregarSheet();
+    setInterval(autoRefresh, 10*60*1000); /* refresh silencioso a cada 10 min */
+  }
+
+  buildChips();
+
+  if(!DADOS.length&&CONFIG.sheetCsvUrl){
+    document.getElementById('catalogo').innerHTML=`<div class="empty">Não foi possível carregar o catálogo.<br><small style="font-style:normal;font-size:13px;display:block;margin-top:8px">Verifique sua conexão e recarregue a página.</small></div>`;
+  } else {
+    render();
+    /* hash routing: rola até o produto se URL tiver #TC1001 */
+    if(window.location.hash && !['#colecao','#sobre'].includes(window.location.hash)){
+      const codHash=window.location.hash.slice(1).toUpperCase();
+      const tentarScroll=(tentativa=0)=>{
+        const el=document.querySelector(`[data-cod="${codHash}"]`);
+        if(el){ el.scrollIntoView({behavior:'smooth',block:'center'}); return; }
+        if(tentativa<10) setTimeout(()=>tentarScroll(tentativa+1),200);
+      };
+      tentarScroll();
+    }
+  }
+}
+init();
+</script>
+
+<button id="btn-topo" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Voltar ao topo" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+</body>
+</html>
